@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>Reminder</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards</title>
+    <link rel="stylesheet" href="../static/card.css" />
+</head>
+
+<body>
+
+    <form action="/main" method="POST" enctype="multipart/form-data">
+        First Name: <input id="first_name" name="first_name" type="text"><br><br>
+        Last Name: <input id="last_name" name="last_name" type="text"><br><br>
+        Email: <input id="email" name="email" type="email"><br><br>
+        Message: <textarea id="textarea" name="message"></textarea><br><br>
+        Duration: <input id="duration" name="duration" placeholder="Enter duration as a number. for example: 3"
+            type="text"><br><br>
+
+        <select name="duration_unit">
+            <option value="" disabled selected>Choose the duration</option>
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+            <option value="days">Days</option>
+        </select>
+
+        <button type="submit">Submit </button>
+    </form>
+
+
+    <section class="card-list">
+        {% for i in l %}
+        <article class="card">
+            <header class="card-header">
+                <p>Sep 11th 2020</p>
+                <h2>{{ i }}</h2>
+            </header>
+
+            <div class="card-author">
+                <!--
+                    <a class="author-avatar" href="#">
+                        <img src="avatar.png" />
+                    </a>
+                    
+                    <svg class="half-circle" viewBox="0 0 106 57">
+                        <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                    </svg>
+    
+                    <div class="author-name">
+                        <div class="author-name-prefix">Author</div>
+                        Jeff Delaney
+                    </div>
+                    -->
+            </div>
+            <div class="tags">
+                <a href="#">html</a>
+                <a href="#">css</a>
+                <a href="#">web-dev</a>
+            </div>
+        </article>
+        {% endfor %}
+    </section>
+
+
+</body>
+
+</html>
